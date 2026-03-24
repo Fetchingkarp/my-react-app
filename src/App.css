@@ -70,7 +70,7 @@
   }
 }
 
-#next-steps {
+#register {
   display: flex;
   border-top: 1px solid var(--border);
   text-align: left;
@@ -104,7 +104,7 @@
   }
 }
 
-#next-steps ul {
+#register ul {
   list-style: none;
   padding: 0;
   display: flex;
