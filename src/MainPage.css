@@ -1,0 +1,196 @@
+/* Structure */
+.main-page {
+  min-height: 100vh;
+  width: 100%;
+
+  display: flex;
+  flex-direction: column;
+  background-color: black;
+}
+
+/* Header */
+
+.user-name-header {
+  height: 100px;
+  align-content: center;
+
+  color: whitesmoke;
+}
+
+.points-header {
+  color: grey;
+  border-style: solid;
+  border-color: black;
+  background-color: whitesmoke;
+
+  align-self: center;
+  align-content: center;
+  width: 130px;
+  height: 130px;
+  border-radius: 130px;
+}
+
+
+/* Kill */
+
+.kill {
+  display: flex;
+  flex-direction: row;
+  flex: 1;
+
+  align-items: center;
+
+  justify-content: space-between;
+}
+
+.kill-button {
+  background-color: red;
+
+  margin: 40px;
+  flex: 1;
+  height: 50px;
+}
+
+.kill-select {
+  flex: 1;
+  height: 30px;
+  margin: 40px;
+}
+
+/* Solve */
+
+.solve {
+  display: flex;
+  flex-direction: row;
+  flex: 1;
+
+  align-items: center;
+  justify-content: space-between;
+}
+
+.solve-button {
+  height: 50px;
+  background-color: green;
+
+  margin: 40px;
+  flex: 1;
+}
+
+.solve-select {
+  flex: 1;
+  height: 30px;
+  margin: 40px;
+
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+
+  display: flex;
+  flex-direction: column;
+}
+
+.solve-victim-select {
+  flex: 1;
+  height: 30px;
+}
+
+.solve-killer-select {
+  flex: 1;
+  height: 30px;
+}
+
+/* Missions */
+.missions-header {
+  margin-bottom: 5px;
+  font-size: 2em;
+  color: white;
+}
+.missions {
+  flex: 3;
+
+  display: flex;
+
+  flex-direction: column;
+  align-items: center;
+
+  overflow: scroll;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+
+  border-radius: 3px;
+
+  flex-wrap: wrap;
+  gap: 10px;  
+  padding: 10px;
+}
+
+.mission-title {
+  width: 60%;
+  padding: 2px;
+  margin: 4px;
+  font-size: 2em; 
+  border-radius: 10px;
+  color: black;
+  align-self: center;
+  background-color: white;
+}
+.mission-description {
+  font-size: 1em;
+  color: black;
+  display: flex;
+  align-items: flex-start;
+  text-align: start;
+  
+
+  /* scrollbar fix */
+  overflow: scroll;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+
+  height: 60%;
+
+  border-style: solid;
+  border-color: #c59b79;
+  padding: 2px;
+  border-radius: 5px;
+  border-width: 3px;;
+}
+.mission-repeats {
+  font-size: 1.2em;
+  color: blue;
+}
+
+.mission-complete-button {
+  background-color: green;
+  border-style: solid;
+  border-color: black;
+
+  width: 80px;
+  height: 35px;  
+
+  align-self: flex-end;
+}
+
+.unlimited-mission {
+  width: 90%;
+  height: 160px;
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+
+  border-style: none;
+  border-radius: 20px;
+  background-color: #f5d2ad;
+}
+
+.inactive-mission {
+  width: 80%;
+  height: 160px;
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+
+  border-style: none;
+  border-radius: 20px;
+  background-color: #a89e93;
+}
