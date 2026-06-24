@@ -1,13 +1,10 @@
 import React, { useEffect, useState } from "react";
 import "./MainPage.css";
-import gun from "./assets/gun.jpg";
-import { useNavigate } from "react-router-dom";
 import HeaderBar from "./assets/HeaderBar";
 
 import "./assets/KillModal";
 import { KillModal } from "./assets/KillModal";
 import { SolveModal } from "./assets/SolveModal";
-import { MissionCompleteModal } from "./assets/MissionCompleteModal";
 
 type User = {
   userId: string;
@@ -63,7 +60,7 @@ const MainPage = () => {
         body: JSON.stringify(body)
       })
       if (res.ok) {
-        const data = await res.json();
+        await res.json();
 
         setKilledName(selectedUser);
         setSelectedUser("");
@@ -88,7 +85,7 @@ const MainPage = () => {
         body: JSON.stringify(body)
       })
       if (res.ok) {
-        const data = await res.json();
+        await res.json();
 
         setSelectedVictimName(selectedVictim);
         setSelectedKillerName(selectedKiller)

@@ -69,7 +69,7 @@ const MissionsPage = () => {
         body: JSON.stringify(body)
       })
       if (res.ok) {
-        const data = await res.json();
+        await res.json();
         setShowMissionConfirm(true);
       }
       setReload(!reload);
@@ -89,7 +89,7 @@ const MissionsPage = () => {
             <b className="mission-title">{mission.title} ({mission.points})</b>
             <p className="mission-description">{mission.description}</p>
             <p className="mission-repeats">{mission.repeats} repeat(s)</p>
-            <button className="mission-complete-button" onClick={(e) => {
+            <button className="mission-complete-button" onClick={() => {
               setShowConfirmModal(true);
               setCompletedMissionName(mission.title);
               setcompletedMissionRepeats(mission.repeats);

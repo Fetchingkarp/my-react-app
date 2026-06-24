@@ -3,22 +3,22 @@ import { useEffect, useState } from 'react';
 import HeaderBar from './assets/HeaderBar';
 import { ChungusModal } from './assets/ChungusModal';
 
-type User = {
-  userId: string;
-  name: string;
-  points: number;
-  missions: Mission[];
-  logs: string[];
-};
+// type User = {
+//   userId: string;
+//   name: string;
+//   points: number;
+//   missions: Mission[];
+//   logs: string[];
+// };
 
-type Mission = {
-  title: string,
-  type: string,
-  description: string,
-  repeats: number,
-  points: number,
-  active: boolean,
-};
+// type Mission = {
+//   title: string,
+//   type: string,
+//   description: string,
+//   repeats: number,
+//   points: number,
+//   active: boolean,
+// };
 
 
 const ChungusPage = () => {
