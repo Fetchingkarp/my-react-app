@@ -4,7 +4,7 @@ import { useEffect, useRef } from "react";
 
 const HeaderBar = () => {
   const navigate = useNavigate();
-  const headerRef = useRef(null);
+  const headerRef = useRef<HTMLDivElement | null>(null);
 
   // Restore scroll position
   useEffect(() => {
@@ -20,7 +20,7 @@ const HeaderBar = () => {
     if (headerRef.current) {
       sessionStorage.setItem(
         "headerScroll",
-        headerRef.current.scrollLeft
+        headerRef.current.scrollLeft.toString()
       );
     }
   };
