@@ -1,0 +1,28 @@
+.help-page {
+  background-color: black;  
+}
+
+.general-container,
+.kill-container,
+.solve-container,
+.die-container,
+.missions-container,
+.chungus-container,
+.mysteries-container {
+  text-align: start;
+  
+  border-bottom-style: solid;
+  border-color: rgb(206, 203, 203);
+
+  padding-bottom: 10px;
+}
+
+.general-header,
+.kill-header,
+.solve-header,
+.die-header,
+.missions-header,
+.chungus-header,
+.mysteries-header {
+ justify-self: center;
+}

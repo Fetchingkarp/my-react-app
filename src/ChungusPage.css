@@ -1,0 +1,26 @@
+.chungus-page {
+  background-color: black;  
+}
+
+.chungus-owned {
+  margin-top: 100px;
+  background-color: green;
+
+  height: 200px;
+  width: 50%;
+  justify-self: center;
+}
+
+.chungus-not-owned {
+  margin-top: 100px;
+  background-color: red;
+  height: 200px;
+  width: 50%;
+  justify-self: center;
+}
+
+.chungus-text {
+  align-self: center;
+  justify-self: center;
+  color: white;
+}

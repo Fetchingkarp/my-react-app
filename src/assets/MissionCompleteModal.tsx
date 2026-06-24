@@ -6,7 +6,7 @@ export function MissionCompleteModal({ missionName, repeats, onClose }: { missio
       <div 
         className="modal-content"
       >
-        <h2>You completed {missionName}! This mission can be completed {repeats - 1} more times</h2>
+        <h2 className="modal-text">You completed {missionName}! This mission can be completed {repeats - 1} more times</h2>
       </div>
     </div>
   );

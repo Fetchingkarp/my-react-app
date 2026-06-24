@@ -29,7 +29,6 @@ type Mission = {
 
 // Props: userId
 const MainPage = () => {
-  const navigate = useNavigate();
 
   const [reload, setReload] = useState<boolean>(true);
 
@@ -39,17 +38,16 @@ const MainPage = () => {
 
   // Kill
   const [selectedUser, setSelectedUser] = useState<string>();
+  const [killedName, setKilledName] = useState<string>();
   // Solve
   const [selectedVictim, setSelectedVictim] = useState<string>();
+  const [selectedVictimName, setSelectedVictimName] = useState<string>();
   const [selectedKiller, setSelectedKiller] = useState<string>();
+  const [selectedKillerName, setSelectedKillerName] = useState<string>();
 
-  // Missions
-  const [completedMissionName, setCompletedMissionName] = useState<string>();
-  const [completedMissionRepeats, setcompletedMissionRepeats] = useState<number>();
   // Modals
   const [showKillConfirm, setShowKillConfirm] = useState<boolean>(false);
   const [showSolveConfirm, setShowSolveConfirm] = useState<boolean>(false);
-  const [showMissionConfirm, setShowMissionConfirm] = useState<boolean>(false);
 
 
   // KILL FUNCTION
@@ -66,8 +64,9 @@ const MainPage = () => {
       })
       if (res.ok) {
         const data = await res.json();
-        console.log(data.targetName);
-        setSelectedUser(data.targetName);
+
+        setKilledName(selectedUser);
+        setSelectedUser("");
         setShowKillConfirm(true);
       }
       setReload(!reload);
@@ -90,32 +89,12 @@ const MainPage = () => {
       })
       if (res.ok) {
         const data = await res.json();
-        console.log(data.targetName);
-        setSelectedUser(data.targetName);
-        setShowSolveConfirm(true);
-      }
-      setReload(!reload);
-    } catch (err) {
-      console.error(err);
-    }
-  }
 
-  // MISSION COMPLETE
-  const completeMission = async(completedMissionName: string, e: React.FormEvent) => {
-    e?.preventDefault
-    const body = { userId, completedMissionName };
-    try {
-      const res = await fetch("http://192.168.0.206:5000/api/points/missions/complete", {
-        method: 'POST',
-        headers: {
-          'Content-type': 'application/json',
-        },
-        body: JSON.stringify(body)
-      })
-      if (res.ok) {
-        const data = await res.json();
-        console.log(data.targetName);
-        setShowMissionConfirm(true);
+        setSelectedVictimName(selectedVictim);
+        setSelectedKillerName(selectedKiller)
+        setSelectedKiller("");
+        setSelectedVictim("");
+        setShowSolveConfirm(true);
       }
       setReload(!reload);
     } catch (err) {
@@ -136,7 +115,6 @@ const MainPage = () => {
         })
         if (res.ok) {
           const data = await res.json();
-          console.log(data);
           setUser(data);
         }
     } catch (err) {
@@ -182,7 +160,7 @@ const MainPage = () => {
             onChange={(e) => setSelectedUser(e.target.value)}
             className="kill-select"
           >
-            <option value="">Kill?</option>
+            <option value="">Kill</option>
             {users.filter((u) => u.userId !== user?.userId).map((u) => (
               <option key={u.userId} value={u.userId}>
                 {u.name}
@@ -223,33 +201,9 @@ const MainPage = () => {
           </div>
       </div>
 
-      <p className="missions-header">MISSIONS</p>
-      <div className="missions">
-        {user && user.missions.filter((m) => m.active === true).map((mission: Mission) => (
-          <button key={mission.title} className="unlimited-mission">
-            <b className="mission-title">{mission.title} ({mission.points})</b>
-            <p className="mission-description">{mission.description}</p>
-            <p className="mission-repeats">{mission.repeats} repeat(s)</p>
-            <button className="mission-complete-button" onClick={(e) => {
-              completeMission(mission.title, e);
-              setCompletedMissionName(mission.title);
-              setcompletedMissionRepeats(mission.repeats);
-            }}>Complete!</button>
-          </button>
-        ))}
-        {user && user.missions.filter((m) => m.active === false).map((mission: Mission) => (
-          <div key={mission.title} className="inactive-mission">
-            <b className="mission-title">{mission.title} ({mission.points})</b>
-            <p className="mission-description">{mission.description}</p>
-          </div>
-        ))}
-
-      </div>
-
-      {showKillConfirm && <KillModal name={selectedUser ?? "no"} onClose={() => setShowKillConfirm(false)}></KillModal>}
-      {showSolveConfirm && <SolveModal victim={users.find((u) => u.userId === selectedVictim)?.name ?? "no"} 
-        killer={users.find((u) => u.userId === selectedKiller)?.name ?? "no"} onClose={() => setShowSolveConfirm(false)}></SolveModal>}
-      {showMissionConfirm && <MissionCompleteModal missionName={completedMissionName ?? "no"} repeats={completedMissionRepeats ?? 1} onClose={() => setShowMissionConfirm(false)}></MissionCompleteModal>}
+      {showKillConfirm && <KillModal name={users.find((u) => u.userId === killedName)?.name ?? "no"} onClose={() => setShowKillConfirm(false)}></KillModal>}
+      {showSolveConfirm && <SolveModal victim={users.find((u) => u.userId === selectedVictimName)?.name ?? "no"} 
+        killer={users.find((u) => u.userId === selectedKillerName)?.name ?? "no"} onClose={() => setShowSolveConfirm(false)}></SolveModal>}
     </div>
   )
 }

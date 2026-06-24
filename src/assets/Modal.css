@@ -15,13 +15,19 @@
 }
 
 .modal-content {
-  background: red;
+  background: black;
+  border-style: solid;
+  border-color: white;
   padding: 2rem;
   border-radius: 10px;
   width: 400px;
   max-width: 70%;
 
-  color: black;
+  color: white;
 
   box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+}
+
+.modal-text {
+  color: white;
 }

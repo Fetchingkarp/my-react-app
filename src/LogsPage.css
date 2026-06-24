@@ -1,3 +1,7 @@
 .logs-page {
     background-color: black;
 }
+
+.logs-container {
+	margin-top: 20px;
+}

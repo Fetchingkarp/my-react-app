@@ -6,7 +6,7 @@ export function KillModal({ name, onClose }: { name: string, onClose: () => void
       <div 
         className="modal-content"
       >
-        <h2>{name} has been killed! </h2>
+        <h2 className="modal-text">{name} has been killed! </h2>
       </div>
     </div>
   );

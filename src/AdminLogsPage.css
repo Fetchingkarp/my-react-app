@@ -1,0 +1,8 @@
+.secret-logs-page {
+  background-color: black;
+  min-height: 100vh;
+}
+
+.secret-logs-container {
+	margin-top: 20px;
+}

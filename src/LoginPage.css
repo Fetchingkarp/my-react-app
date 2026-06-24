@@ -10,8 +10,8 @@
   border-bottom-style: solid;
   border-bottom-color: grey;
   margin: 10px;
-  
-  width: 100%;
+  line-height: 1.3;
+  width: 95%;
 }
 
 .register {

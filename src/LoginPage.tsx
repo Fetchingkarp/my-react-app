@@ -3,6 +3,9 @@ import { useNavigate } from 'react-router-dom';
 import './LoginPage.css';
 import React, { useState } from "react";
 
+const SECRET_ID = "1"
+const ADMIN_ID = "2"
+
 // onLoginSuccess == Prop FROM App.tsx. Calling it causes setUser to fire. Therefore, changes userData in App
 const LoginPage = () => {
   const navigate = useNavigate();
@@ -13,8 +16,6 @@ const LoginPage = () => {
   const handleRegisterSubmit = async (e: React.FormEvent) => {
     e.preventDefault(); // prevents page reload
 
-    console.log("Name:", name);
-    console.log("Password:", password);
     const body = { name, password, }
 
     try {
@@ -26,7 +27,6 @@ const LoginPage = () => {
         body: JSON.stringify(body)
       })
       const data = await res.json();
-      console.log(data);
       
       // Store token
       localStorage.setItem('userId', data.userId);
@@ -42,8 +42,6 @@ const LoginPage = () => {
   const handleLoginSubmit = async (e: React.FormEvent) => {
     e.preventDefault(); // prevents page reload
 
-    console.log("Name:", loginName);
-    console.log("Password:", loginPassword);
     const body = { loginName, loginPassword, }
     try {
       const res = await fetch("http://192.168.0.206:5000/api/auth/login", {
@@ -54,11 +52,17 @@ const LoginPage = () => {
         body: JSON.stringify(body)
       })
       const data = await res.json();
-      console.log(data.userid);
 
       // Store userId
       localStorage.setItem('userId', data.userid);
-      navigate("/main")
+      console.log(data.userid);
+      if (data.userid === SECRET_ID) {
+        navigate("/secret");
+      } else if (data.userid === ADMIN_ID) {
+        navigate("/admin");
+      } else {
+        navigate("/main");
+      }
     } catch (err) {
       console.error(err);
     }
@@ -68,7 +72,7 @@ const LoginPage = () => {
   return (
     <div className='login-page'>
       <header className='login-header'>
-        <h1>Welcome to Backstab Bonanza!</h1>
+        <h1>Backstab Bonanza the 2nd</h1>
       </header>
       <div className='login-register'>
         <div className='register'>

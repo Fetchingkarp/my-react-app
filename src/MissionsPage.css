@@ -1,20 +1,5 @@
-/* Structure */
-.main-page {
-  min-height: 100vh;
-  width: 100%;
-
-  display: flex;
-  flex-direction: column;
-  background-color: black;
-}
-
-/* Header */
-
-.user-name-header {
-  height: 100px;
-  align-content: center;
-
-  color: whitesmoke;
+.missions-page {
+    background-color: black;
 }
 
 .points-header {
@@ -30,78 +15,11 @@
   border-radius: 130px;
 }
 
+/* missions */
 
-/* Kill */
-
-.kill {
-  display: flex;
-  flex-direction: row;
-  flex: 1;
-
-  align-items: center;
-
-  justify-content: space-between;
-}
-
-.kill-button {
-  background-color: #dc3545;
-
-  margin: 40px;
-  flex: 1;
-  height: 50px;
-}
-
-.kill-select {
-  flex: 1;
-  height: 30px;
-  margin: 40px;
-}
-
-/* Solve */
-
-.solve {
-  display: flex;
-  flex-direction: row;
-  flex: 1;
-
-  align-items: center;
-  justify-content: space-between;
-}
-
-.solve-button {
-  height: 50px;
-  background-color: #28a745;
-
-  margin: 40px;
-  flex: 1;
-}
-
-.solve-select {
-  flex: 1;
-  height: 30px;
-  margin: 40px;
-
-  align-items: center;
-  justify-content: center;
-  gap: 20px;
-
-  display: flex;
-  flex-direction: column;
-}
-
-.solve-victim-select {
-  flex: 1;
-  height: 30px;
-}
-
-.solve-killer-select {
-  flex: 1;
-  height: 30px;
-}
-
-/* Missions */
 .missions-header {
-  margin-bottom: 5px;
+  margin-top: 10px;
+  margin-bottom: 10px;
   font-size: 2em;
   color: white;
 }
@@ -130,14 +48,13 @@
   margin: 4px;
   font-size: 2em; 
   border-radius: 10px;
-  color: black;
+  color: white;
   align-self: center;
-  background-color: white;
-  
+  background-color: black;
 }
 .mission-description {
   font-size: 1em;
-  color: black;
+  color: white;
   display: flex;
   align-items: flex-start;
   text-align: start;
@@ -151,19 +68,20 @@
   height: 60%;
 
   border-style: solid;
-  border-color: #c59b79;
+  border-color: white;
   padding: 2px;
   border-radius: 5px;
   border-width: 3px;;
 }
 .mission-repeats {
   font-size: 1.2em;
-  color: blue;
+  color: white;
 }
 
 .mission-complete-button {
-  background-color: green;
+  background-color: #28a745;
   border-style: solid;
+  border-radius: 5px;
   border-color: black;
 
   width: 80px;
@@ -174,14 +92,15 @@
 
 .unlimited-mission {
   width: 90%;
-  height: 160px;
+  height: 200px;
   display: flex;
   flex-direction: column;
   padding: 10px;
 
-  border-style: none;
+  border-style: solid;
+  border-color: white;
   border-radius: 20px;
-  background-color: #f5d2ad;
+  background-color: black;
 }
 
 .inactive-mission {
@@ -191,7 +110,8 @@
   flex-direction: column;
   padding: 10px;
 
-  border-style: none;
+  border-style: solid;
+  border-color: white;
   border-radius: 20px;
-  background-color: #a89e93;
+  background-color: grey;
 }

@@ -1,24 +1,37 @@
 .main-header {
   display: flex;
+  flex-direction: row;
+  overflow: scroll;
+
+  border-bottom-style: solid;
+  border-color: white;
+
   padding: 20px;
 
   height: 10%;
-  width: 80%;  
+  width: 90%;
 }
 
 .log-out-button {
   font-size: 15px;
   border-style: none;
   border-radius: 20px;
-  background-color: red;
+  background-color: #dc3545;
   color: white;
   height: 50px;
   width: 80px;
 
   margin-right: 10px;
+
+  flex-shrink: 0;
 }
 
-.home-button {
+.home-button,
+.logs-button,
+.missions-button,
+.chungus-button,
+.mysteries-button,
+.help-button {
   font-size: 15px;
   border-style: none;
   border-radius: 20px;
@@ -27,18 +40,10 @@
   height: 50px;
   width: 80px;
 
-  margin-right: 10px;
-}
-
-.logs-button {
-  font-size: 15px;
-  border-style: none;
-  border-radius: 20px;
-  background-color: black;
-  color: white;
-  height: 50px;
-  width: 80px;
+  border-style: solid;
+  border-color: white;
 
   margin-right: 10px;
-}
 
+  flex-shrink: 0;
+}

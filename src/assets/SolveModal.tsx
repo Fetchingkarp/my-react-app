@@ -6,7 +6,7 @@ export function SolveModal({ victim, killer, onClose }: { victim: string, killer
       <div 
         className="modal-content"
       >
-        <h2>You solved the murder of {victim} by {killer}! </h2>
+        <h2 className="modal-text">You solved the murder of {victim} by {killer}! </h2>
       </div>
     </div>
   );
