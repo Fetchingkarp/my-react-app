@@ -39,7 +39,7 @@ const MissionsPage = () => {
   useEffect(() => {
       const getUser = async () => {
         try {
-          const res = await fetch("https://openings-sauce-shopper-cam.trycloudflare.com/api/user", {
+          const res = await fetch("https://extraordinary-elected-basement-polo.trycloudflare.com/api/user", {
             method: 'GET',
             headers: {
               'Content-type': 'application/json',
@@ -61,7 +61,7 @@ const MissionsPage = () => {
   const completeMission = async(completedMissionName: string) => {
     const body = { userId, completedMissionName };
     try {
-      const res = await fetch("https://openings-sauce-shopper-cam.trycloudflare.com/api/points/missions/complete", {
+      const res = await fetch("https://extraordinary-elected-basement-polo.trycloudflare.com/api/points/missions/complete", {
         method: 'POST',
         headers: {
           'Content-type': 'application/json',

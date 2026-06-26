@@ -28,7 +28,7 @@ const LogsPage = () => {
   useEffect(() => {
       const getUser = async () => {
         try {
-          const res = await fetch("https://openings-sauce-shopper-cam.trycloudflare.com/api/user", {
+          const res = await fetch("https://extraordinary-elected-basement-polo.trycloudflare.com/api/user", {
             method: 'GET',
             headers: {
               'Content-type': 'application/json',

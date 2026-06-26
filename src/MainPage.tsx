@@ -52,7 +52,7 @@ const MainPage = () => {
     e?.preventDefault
     const body = { killerId: userId, targetName: selectedUser };
     try {
-      const res = await fetch("https://openings-sauce-shopper-cam.trycloudflare.com/api/points/kill", {
+      const res = await fetch("https://extraordinary-elected-basement-polo.trycloudflare.com/api/points/kill", {
         method: 'POST',
         headers: {
           'Content-type': 'application/json',
@@ -77,7 +77,7 @@ const MainPage = () => {
     e?.preventDefault
     const body = { detectiveId: userId, victimId: selectedVictim, killerId: selectedKiller };
     try {
-      const res = await fetch("https://openings-sauce-shopper-cam.trycloudflare.com/api/points/solve", {
+      const res = await fetch("https://extraordinary-elected-basement-polo.trycloudflare.com/api/points/solve", {
         method: 'POST',
         headers: {
           'Content-type': 'application/json',
@@ -103,7 +103,7 @@ const MainPage = () => {
   useEffect(() => {
     const getUser = async () => {
       try {
-        const res = await fetch("https://openings-sauce-shopper-cam.trycloudflare.com/api/user", {
+        const res = await fetch("https://extraordinary-elected-basement-polo.trycloudflare.com/api/user", {
           method: 'GET',
           headers: {
             'Content-type': 'application/json',
@@ -121,7 +121,7 @@ const MainPage = () => {
     getUser();
 
     // Get all users
-    fetch("https://openings-sauce-shopper-cam.trycloudflare.com/api/users") // 🔁 change to your API URL
+    fetch("https://extraordinary-elected-basement-polo.trycloudflare.com/api/users") // 🔁 change to your API URL
       .then((res) => res.json())
       .then((data) => {
         const usersArray: User[] = Object.entries(data).map(
