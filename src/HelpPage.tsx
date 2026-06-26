@@ -41,7 +41,7 @@ const HelpPage = () => {
         </div>
 
         <div className='missions-container'>
-          <h3 className='missions-header'>Missions</h3>
+          <h3 className='help-missions-header'>Missions</h3>
           <p>Follow mission instructions. Some missions may require proof. </p>
           <p>Missions should be kept personal. Some people have the same missions</p>
           <p>If you complete a mission, log it on this app</p>
