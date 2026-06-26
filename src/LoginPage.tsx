@@ -19,7 +19,7 @@ const LoginPage = () => {
     const body = { name, password, }
 
     try {
-      const res = await fetch("http://192.168.0.206:5000/api/auth/register", {
+      const res = await fetch("https://customize-document-rudder.ngrok-free.dev/api/auth/register", {
         method: 'POST',
         headers: {
           'Content-type': 'application/json',
@@ -44,7 +44,7 @@ const LoginPage = () => {
 
     const body = { loginName, loginPassword, }
     try {
-      const res = await fetch("http://192.168.0.206:5000/api/auth/login", {
+      const res = await fetch("https://customize-document-rudder.ngrok-free.dev/api/auth/login", {
         method: 'POST',
         headers: {
           'Content-type': 'application/json',
