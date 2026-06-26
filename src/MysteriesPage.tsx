@@ -14,7 +14,7 @@ const MysteriesPage = () => {
   useEffect(() => {
     const getMysteries = async () => {
       try {
-        const res = await fetch("http://192.168.0.206:5000/api/mysteries", {
+        const res = await fetch("https://customize-document-rudder.ngrok-free.dev/api/mysteries", {
           method: 'GET',
           headers: {
             'Content-type': 'application/json',

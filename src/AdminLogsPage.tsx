@@ -13,7 +13,7 @@ const AdminLogsPage = () => {
   useEffect(() => {
       const getAdminLogs = async () => {
         try {
-          const res = await fetch("http://192.168.0.206:5000/api/secret/logs", {
+          const res = await fetch("https://customize-document-rudder.ngrok-free.dev/api/secret/logs", {
             method: 'GET',
             headers: {
               'Content-type': 'application/json',

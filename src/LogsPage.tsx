@@ -28,7 +28,7 @@ const LogsPage = () => {
   useEffect(() => {
       const getUser = async () => {
         try {
-          const res = await fetch("http://192.168.0.206:5000/api/user", {
+          const res = await fetch("https://customize-document-rudder.ngrok-free.dev/api/user", {
             method: 'GET',
             headers: {
               'Content-type': 'application/json',

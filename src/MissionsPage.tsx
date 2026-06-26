@@ -39,7 +39,7 @@ const MissionsPage = () => {
   useEffect(() => {
       const getUser = async () => {
         try {
-          const res = await fetch("http://192.168.0.206:5000/api/user", {
+          const res = await fetch("https://customize-document-rudder.ngrok-free.dev/api/user", {
             method: 'GET',
             headers: {
               'Content-type': 'application/json',
@@ -61,7 +61,7 @@ const MissionsPage = () => {
   const completeMission = async(completedMissionName: string) => {
     const body = { userId, completedMissionName };
     try {
-      const res = await fetch("http://192.168.0.206:5000/api/points/missions/complete", {
+      const res = await fetch("https://customize-document-rudder.ngrok-free.dev/api/points/missions/complete", {
         method: 'POST',
         headers: {
           'Content-type': 'application/json',

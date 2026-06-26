@@ -52,7 +52,7 @@ const MainPage = () => {
     e?.preventDefault
     const body = { killerId: userId, targetName: selectedUser };
     try {
-      const res = await fetch("http://192.168.0.206:5000/api/points/kill", {
+      const res = await fetch("https://customize-document-rudder.ngrok-free.dev/api/points/kill", {
         method: 'POST',
         headers: {
           'Content-type': 'application/json',
@@ -77,7 +77,7 @@ const MainPage = () => {
     e?.preventDefault
     const body = { detectiveId: userId, victimId: selectedVictim, killerId: selectedKiller };
     try {
-      const res = await fetch("http://192.168.0.206:5000/api/points/solve", {
+      const res = await fetch("https://customize-document-rudder.ngrok-free.dev/api/points/solve", {
         method: 'POST',
         headers: {
           'Content-type': 'application/json',
@@ -103,7 +103,7 @@ const MainPage = () => {
   useEffect(() => {
     const getUser = async () => {
       try {
-        const res = await fetch("http://192.168.0.206:5000/api/user", {
+        const res = await fetch("https://customize-document-rudder.ngrok-free.dev/api/user", {
           method: 'GET',
           headers: {
             'Content-type': 'application/json',
@@ -121,7 +121,7 @@ const MainPage = () => {
     getUser();
 
     // Get all users
-    fetch("http://192.168.0.206:5000/api/users") // 🔁 change to your API URL
+    fetch("https://customize-document-rudder.ngrok-free.dev/api/users") // 🔁 change to your API URL
       .then((res) => res.json())
       .then((data) => {
         const usersArray: User[] = Object.entries(data).map(
