@@ -34,7 +34,7 @@ const ChungusPage = () => {
   useEffect(() => {
       const getChungus = async () => {
         try {
-          const res = await fetch("https://customize-document-rudder.ngrok-free.dev/api/points/chungus", {
+          const res = await fetch("https://classic-hospitality-mothers-bird.trycloudflare.com/api/points/chungus", {
             method: 'GET',
             headers: {
               'Content-type': 'application/json',
@@ -57,7 +57,7 @@ const ChungusPage = () => {
   
       const body = { userId }
       try {
-        const res = await fetch("https://customize-document-rudder.ngrok-free.dev/api/points/chungus", {
+        const res = await fetch("https://classic-hospitality-mothers-bird.trycloudflare.com/api/points/chungus", {
           method: 'POST',
           headers: {
             'Content-type': 'application/json',

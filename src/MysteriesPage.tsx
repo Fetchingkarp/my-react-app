@@ -14,7 +14,7 @@ const MysteriesPage = () => {
   useEffect(() => {
     const getMysteries = async () => {
       try {
-        const res = await fetch("https://customize-document-rudder.ngrok-free.dev/api/mysteries", {
+        const res = await fetch("https://classic-hospitality-mothers-bird.trycloudflare.com/api/mysteries", {
           method: 'GET',
           headers: {
             'Content-type': 'application/json',

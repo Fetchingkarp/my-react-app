@@ -28,7 +28,7 @@ const LogsPage = () => {
   useEffect(() => {
       const getUser = async () => {
         try {
-          const res = await fetch("https://customize-document-rudder.ngrok-free.dev/api/user", {
+          const res = await fetch("https://classic-hospitality-mothers-bird.trycloudflare.com/api/user", {
             method: 'GET',
             headers: {
               'Content-type': 'application/json',
