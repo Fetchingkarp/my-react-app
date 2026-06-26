@@ -13,7 +13,7 @@ const AdminLogsPage = () => {
   useEffect(() => {
       const getAdminLogs = async () => {
         try {
-          const res = await fetch("https://classic-hospitality-mothers-bird.trycloudflare.com/api/secret/logs", {
+          const res = await fetch("https://openings-sauce-shopper-cam.trycloudflare.com/api/secret/logs", {
             method: 'GET',
             headers: {
               'Content-type': 'application/json',
