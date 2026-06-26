@@ -19,7 +19,7 @@ const LoginPage = () => {
     const body = { name, password, }
 
     try {
-      const res = await fetch("https://classic-hospitality-mothers-bird.trycloudflare.com/api/auth/register", {
+      const res = await fetch("https://openings-sauce-shopper-cam.trycloudflare.com/api/auth/register", {
         method: 'POST',
         headers: {
           'Content-type': 'application/json',
@@ -44,7 +44,7 @@ const LoginPage = () => {
 
     const body = { loginName, loginPassword, }
     try {
-      const res = await fetch("https://classic-hospitality-mothers-bird.trycloudflare.com/api/auth/login", {
+      const res = await fetch("https://openings-sauce-shopper-cam.trycloudflare.com/api/auth/login", {
         method: 'POST',
         headers: {
           'Content-type': 'application/json',
