@@ -9,11 +9,12 @@ const ADMIN_ID = "2"
 // onLoginSuccess == Prop FROM App.tsx. Calling it causes setUser to fire. Therefore, changes userData in App
 const LoginPage = () => {
   const navigate = useNavigate();
+  {/*
   const [name, setName] = useState<string>("");
   const [password, setPassword] = useState<string>("");
 
   // Register
-  {/*const handleRegisterSubmit = async (e: React.FormEvent) => {
+  const handleRegisterSubmit = async (e: React.FormEvent) => {
     e.preventDefault(); // prevents page reload
 
     const body = { name, password, }
