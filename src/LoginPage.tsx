@@ -19,7 +19,7 @@ const LoginPage = () => {
     const body = { name, password, }
 
     try {
-      const res = await fetch("https://extraordinary-elected-basement-polo.trycloudflare.com/api/auth/register", {
+      const res = await fetch("https://ddr-passive-delicious-gray.trycloudflare.com/api/auth/register", {
         method: 'POST',
         headers: {
           'Content-type': 'application/json',
@@ -27,7 +27,7 @@ const LoginPage = () => {
         body: JSON.stringify(body)
       })
       const data = await res.json();
-      
+
       // Store token
       localStorage.setItem('userId', data.userId);
       navigate("/main")
@@ -35,7 +35,7 @@ const LoginPage = () => {
       console.error(err);
     }
   };
-  
+
   // Log in
   const [loginName, setLoginName] = useState<string>("");
   const [loginPassword, setLoginPassword] = useState<string>("");
@@ -44,7 +44,7 @@ const LoginPage = () => {
 
     const body = { loginName, loginPassword, }
     try {
-      const res = await fetch("https://extraordinary-elected-basement-polo.trycloudflare.com/api/auth/login", {
+      const res = await fetch("https://ddr-passive-delicious-gray.trycloudflare.com/api/auth/login", {
         method: 'POST',
         headers: {
           'Content-type': 'application/json',
@@ -75,7 +75,7 @@ const LoginPage = () => {
         <h1>Backstab Bonanza the 2nd</h1>
       </header>
       <div className='login-register'>
-        <div className='register'>
+        {/* <div className='register'>
           <h2>Register</h2>
           <form onSubmit={handleRegisterSubmit} className='register-form'>
             <input
@@ -96,27 +96,27 @@ const LoginPage = () => {
             />
             <button type="submit" className='register-submit'>Submit</button>
           </form>
-        </div>
+        </div>*/}
         <div className='login'>
           <h2>Log In</h2>
           <form onSubmit={handleLoginSubmit} className='login-form'>
-          <input
-            placeholder="Enter name"
-            value={loginName}
-            className='login-name-input'
-            onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
-              setLoginName(e.target.value)
-            }
-          />
-          <input
-            placeholder="Enter password"
-            value={loginPassword}
-            className='login-password-input'
-            onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
-              setLoginPassword(e.target.value)
-            }
-          />
-        <button type="submit" className='login-submit'>Submit</button>
+            <input
+              placeholder="Enter name"
+              value={loginName}
+              className='login-name-input'
+              onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+                setLoginName(e.target.value)
+              }
+            />
+            <input
+              placeholder="Enter password"
+              value={loginPassword}
+              className='login-password-input'
+              onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+                setLoginPassword(e.target.value)
+              }
+            />
+            <button type="submit" className='login-submit'>Submit</button>
           </form>
         </div>
       </div>

@@ -22,7 +22,7 @@ import { ChungusModal } from './assets/ChungusModal';
 
 
 const ChungusPage = () => {
-  const userId = localStorage.getItem("userId"); 
+  const userId = localStorage.getItem("userId");
   const [reload, setReload] = useState<boolean>(false);
 
   // Chungus ownership
@@ -32,62 +32,62 @@ const ChungusPage = () => {
   const [showChungusModal, setShowChungusModal] = useState<boolean>(false);
 
   useEffect(() => {
-      const getChungus = async () => {
-        try {
-          const res = await fetch("https://extraordinary-elected-basement-polo.trycloudflare.com/api/points/chungus", {
-            method: 'GET',
-            headers: {
-              'Content-type': 'application/json',
-              'userId': `${userId}`,
-            },
-          })
-          if (res.ok) {
-            const data = await res.json();
-            setChungus(data.owner);
-          }
-      } catch (err) {
-        console.error(err);
-      }
-      }
-      getChungus();
-    }, [reload] );
-  
-  const kickChungus = async (e: React.FormEvent) => {
-      e.preventDefault(); // prevents page reload
-  
-      const body = { userId }
+    const getChungus = async () => {
       try {
-        const res = await fetch("https://extraordinary-elected-basement-polo.trycloudflare.com/api/points/chungus", {
-          method: 'POST',
+        const res = await fetch("https://ddr-passive-delicious-gray.trycloudflare.com/api/points/chungus", {
+          method: 'GET',
           headers: {
             'Content-type': 'application/json',
+            'userId': `${userId}`,
           },
-          body: JSON.stringify(body)
         })
-        const data = await res.json();
-        
-        setResCode(data.res);
-        setTime(data.time);
-
-        setShowChungusModal(true);
+        if (res.ok) {
+          const data = await res.json();
+          setChungus(data.owner);
+        }
       } catch (err) {
         console.error(err);
       }
     }
+    getChungus();
+  }, [reload]);
+
+  const kickChungus = async (e: React.FormEvent) => {
+    e.preventDefault(); // prevents page reload
+
+    const body = { userId }
+    try {
+      const res = await fetch("https://ddr-passive-delicious-gray.trycloudflare.com/api/points/chungus", {
+        method: 'POST',
+        headers: {
+          'Content-type': 'application/json',
+        },
+        body: JSON.stringify(body)
+      })
+      const data = await res.json();
+
+      setResCode(data.res);
+      setTime(data.time);
+
+      setShowChungusModal(true);
+    } catch (err) {
+      console.error(err);
+    }
+  }
 
   return (
     <div className='chungus-page'>
-      <HeaderBar/>
+      <HeaderBar />
       <div className='chungus-container'>
         <div className={chungus ? "chungus-owned" : "chungus-not-owned"} onClick={(e) => {
           kickChungus(e);
           setReload(!reload);
-          }}>
-            <p className='chungus-text'>{chungus ? "you have the chungus" : "you don't have the gungus"}</p>
+        }}>
+          <p className='chungus-text'>{chungus ? "you have the chungus" : "you don't have the gungus"}</p>
         </div>
       </div>
 
-      {showChungusModal && <ChungusModal resCode={resCode} time={time} onClose={() => setShowChungusModal(false)}/>}
+      {showChungusModal && <ChungusModal resCode={resCode} time={time} onClose={() => setShowChungusModal(false)} />}
     </div>
   )
 }

@@ -48,11 +48,11 @@ const MainPage = () => {
 
 
   // KILL FUNCTION
-  const kill = async(e: React.FormEvent) => {
+  const kill = async (e: React.FormEvent) => {
     e?.preventDefault
     const body = { killerId: userId, targetName: selectedUser };
     try {
-      const res = await fetch("https://extraordinary-elected-basement-polo.trycloudflare.com/api/points/kill", {
+      const res = await fetch("https://ddr-passive-delicious-gray.trycloudflare.com/api/points/kill", {
         method: 'POST',
         headers: {
           'Content-type': 'application/json',
@@ -73,11 +73,11 @@ const MainPage = () => {
   }
 
   // SOLVE FUNCTION
-  const solve = async(e: React.FormEvent) => {
+  const solve = async (e: React.FormEvent) => {
     e?.preventDefault
     const body = { detectiveId: userId, victimId: selectedVictim, killerId: selectedKiller };
     try {
-      const res = await fetch("https://extraordinary-elected-basement-polo.trycloudflare.com/api/points/solve", {
+      const res = await fetch("https://ddr-passive-delicious-gray.trycloudflare.com/api/points/solve", {
         method: 'POST',
         headers: {
           'Content-type': 'application/json',
@@ -103,7 +103,7 @@ const MainPage = () => {
   useEffect(() => {
     const getUser = async () => {
       try {
-        const res = await fetch("https://extraordinary-elected-basement-polo.trycloudflare.com/api/user", {
+        const res = await fetch("https://ddr-passive-delicious-gray.trycloudflare.com/api/user", {
           method: 'GET',
           headers: {
             'Content-type': 'application/json',
@@ -114,14 +114,14 @@ const MainPage = () => {
           const data = await res.json();
           setUser(data);
         }
-    } catch (err) {
-      console.error(err);
-    }
+      } catch (err) {
+        console.error(err);
+      }
     }
     getUser();
 
     // Get all users
-    fetch("https://extraordinary-elected-basement-polo.trycloudflare.com/api/users") // 🔁 change to your API URL
+    fetch("https://ddr-passive-delicious-gray.trycloudflare.com/api/users") // 🔁 change to your API URL
       .then((res) => res.json())
       .then((data) => {
         const usersArray: User[] = Object.entries(data).map(
@@ -144,62 +144,62 @@ const MainPage = () => {
 
   return (
     <div className="main-page">
-      <HeaderBar/>
+      <HeaderBar />
       {user && <h1 className="user-name-header">Welcome, <b>{user.name}</b></h1>}
       {user && <h1 className="points-header">{user.points}</h1>}
 
       {/* Kill section */}
       <div className="kill">
         <button className="kill-button" onClick={kill}>KILL</button>
-          {/* Dropdown */}
+        {/* Dropdown */}
+        <select
+          value={selectedUser ?? ""}
+          onChange={(e) => setSelectedUser(e.target.value)}
+          className="kill-select"
+        >
+          <option value="">Kill</option>
+          {users.filter((u) => u.userId !== user?.userId).map((u) => (
+            <option key={u.userId} value={u.userId}>
+              {u.name}
+            </option>
+          ))}
+        </select>
+      </div>
+
+      {/* Solve section */}
+      <div className="solve">
+        <button className="solve-button" onClick={solve}>SOLVE</button>
+        {/* Dropdown */}
+        <div className="solve-select">
           <select
-            value={selectedUser ?? ""}
-            onChange={(e) => setSelectedUser(e.target.value)}
-            className="kill-select"
+            value={selectedVictim ?? ""}
+            onChange={(e) => setSelectedVictim(e.target.value)}
+            className="solve-victim-select"
           >
-            <option value="">Kill</option>
+            <option value="">Victim</option>
             {users.filter((u) => u.userId !== user?.userId).map((u) => (
               <option key={u.userId} value={u.userId}>
                 {u.name}
               </option>
             ))}
           </select>
-      </div>
-
-      {/* Solve section */}
-      <div className="solve">
-        <button className="solve-button" onClick={solve}>SOLVE</button>
-          {/* Dropdown */}
-          <div className="solve-select">
-            <select
-              value={selectedVictim ?? ""}
-              onChange={(e) => setSelectedVictim(e.target.value)}
-              className="solve-victim-select"
-            >
-              <option value="">Victim</option>
-              {users.filter((u) => u.userId !== user?.userId).map((u) => (
-                <option key={u.userId} value={u.userId}>
-                  {u.name}
-                </option>
-              ))}
-            </select>
-            <select
-              value={selectedKiller ?? ""}
-              onChange={(e) => setSelectedKiller(e.target.value)}
-              className="solve-killer-select"
-            >
-              <option value="">Whodidit</option>
-              {users.filter((u) => u.userId !== user?.userId).map((u) => (
-                <option key={u.userId} value={u.userId}>
-                  {u.name}
-                </option>
-              ))}
-            </select>
-          </div>
+          <select
+            value={selectedKiller ?? ""}
+            onChange={(e) => setSelectedKiller(e.target.value)}
+            className="solve-killer-select"
+          >
+            <option value="">Whodidit</option>
+            {users.filter((u) => u.userId !== user?.userId).map((u) => (
+              <option key={u.userId} value={u.userId}>
+                {u.name}
+              </option>
+            ))}
+          </select>
+        </div>
       </div>
 
       {showKillConfirm && <KillModal name={users.find((u) => u.userId === killedName)?.name ?? "no"} onClose={() => setShowKillConfirm(false)}></KillModal>}
-      {showSolveConfirm && <SolveModal victim={users.find((u) => u.userId === selectedVictimName)?.name ?? "no"} 
+      {showSolveConfirm && <SolveModal victim={users.find((u) => u.userId === selectedVictimName)?.name ?? "no"}
         killer={users.find((u) => u.userId === selectedKillerName)?.name ?? "no"} onClose={() => setShowSolveConfirm(false)}></SolveModal>}
     </div>
   )

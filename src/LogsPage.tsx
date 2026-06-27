@@ -21,34 +21,34 @@ type Mission = {
 
 
 const LogsPage = () => {
-  const userId = localStorage.getItem("userId"); 
+  const userId = localStorage.getItem("userId");
 
   const [user, setUser] = useState<User>();
 
   useEffect(() => {
-      const getUser = async () => {
-        try {
-          const res = await fetch("https://extraordinary-elected-basement-polo.trycloudflare.com/api/user", {
-            method: 'GET',
-            headers: {
-              'Content-type': 'application/json',
-              'userId': `${userId}`,
-            },
-          })
-          if (res.ok) {
-            const data = await res.json();
-            setUser(data);
-          }
+    const getUser = async () => {
+      try {
+        const res = await fetch("https://ddr-passive-delicious-gray.trycloudflare.com/api/user", {
+          method: 'GET',
+          headers: {
+            'Content-type': 'application/json',
+            'userId': `${userId}`,
+          },
+        })
+        if (res.ok) {
+          const data = await res.json();
+          setUser(data);
+        }
       } catch (err) {
         console.error(err);
       }
-      }
-      getUser();
-    }, [] );
+    }
+    getUser();
+  }, []);
 
   return (
     <div className='logs-page'>
-      <HeaderBar/>
+      <HeaderBar />
       <div className='logs-container'>
         {user && user.logs.map((log: string) => (
           <div key={log} className="log">

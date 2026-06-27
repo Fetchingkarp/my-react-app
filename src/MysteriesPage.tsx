@@ -9,12 +9,12 @@ type Mystery = {
 
 
 const MysteriesPage = () => {
-  const [mysteries, setMysteries] = useState<Mystery[]>([]); 
+  const [mysteries, setMysteries] = useState<Mystery[]>([]);
 
   useEffect(() => {
     const getMysteries = async () => {
       try {
-        const res = await fetch("https://extraordinary-elected-basement-polo.trycloudflare.com/api/mysteries", {
+        const res = await fetch("https://ddr-passive-delicious-gray.trycloudflare.com/api/mysteries", {
           method: 'GET',
           headers: {
             'Content-type': 'application/json',
@@ -29,11 +29,11 @@ const MysteriesPage = () => {
       }
     }
     getMysteries();
-  }, [] );
+  }, []);
 
   return (
     <div className='mysteries-page'>
-      <HeaderBar/>
+      <HeaderBar />
       <div className='mysteries-container'>
         {mysteries && mysteries.map((mystery: Mystery) => (
           <div key={mystery.title} className="mystery">

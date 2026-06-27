@@ -24,7 +24,7 @@ type Mission = {
 
 
 const MissionsPage = () => {
-  const userId = localStorage.getItem("userId"); 
+  const userId = localStorage.getItem("userId");
 
   const [reload, setReload] = useState<boolean>(true);
 
@@ -37,31 +37,31 @@ const MissionsPage = () => {
   const [showConfirmModal, setShowConfirmModal] = useState<boolean>(false);
 
   useEffect(() => {
-      const getUser = async () => {
-        try {
-          const res = await fetch("https://extraordinary-elected-basement-polo.trycloudflare.com/api/user", {
-            method: 'GET',
-            headers: {
-              'Content-type': 'application/json',
-              'userId': `${userId}`,
-            },
-          })
-          if (res.ok) {
-            const data = await res.json();
-            setUser(data);
-          }
+    const getUser = async () => {
+      try {
+        const res = await fetch("https://ddr-passive-delicious-gray.trycloudflare.com/api/user", {
+          method: 'GET',
+          headers: {
+            'Content-type': 'application/json',
+            'userId': `${userId}`,
+          },
+        })
+        if (res.ok) {
+          const data = await res.json();
+          setUser(data);
+        }
       } catch (err) {
         console.error(err);
       }
-      }
-      getUser();
-    }, [reload] );
+    }
+    getUser();
+  }, [reload]);
 
   // MISSION COMPLETE
-  const completeMission = async(completedMissionName: string) => {
+  const completeMission = async (completedMissionName: string) => {
     const body = { userId, completedMissionName };
     try {
-      const res = await fetch("https://extraordinary-elected-basement-polo.trycloudflare.com/api/points/missions/complete", {
+      const res = await fetch("https://ddr-passive-delicious-gray.trycloudflare.com/api/points/missions/complete", {
         method: 'POST',
         headers: {
           'Content-type': 'application/json',
@@ -80,7 +80,7 @@ const MissionsPage = () => {
 
   return (
     <div className='missions-page'>
-      <HeaderBar/>
+      <HeaderBar />
       {/* {user && <h1 className="points-header">{user.points}</h1>} */}
       <p className="missions-header">MISSIONS</p>
       <div className="missions">

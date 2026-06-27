@@ -11,24 +11,24 @@ const AdminLogsPage = () => {
   const [reload, setReload] = useState<boolean>(false);
 
   useEffect(() => {
-      const getAdminLogs = async () => {
-        try {
-          const res = await fetch("https://extraordinary-elected-basement-polo.trycloudflare.com/api/secret/logs", {
-            method: 'GET',
-            headers: {
-              'Content-type': 'application/json',
-            },
-          })
-          if (res.ok) {
-            const data = await res.json();
-            setLogs(data.secretLogs);
-          }
+    const getAdminLogs = async () => {
+      try {
+        const res = await fetch("https://ddr-passive-delicious-gray.trycloudflare.com/api/secret/logs", {
+          method: 'GET',
+          headers: {
+            'Content-type': 'application/json',
+          },
+        })
+        if (res.ok) {
+          const data = await res.json();
+          setLogs(data.secretLogs);
+        }
       } catch (err) {
         console.error(err);
       }
-      }
-      getAdminLogs();
-    }, [reload] );
+    }
+    getAdminLogs();
+  }, [reload]);
 
   return (
     <div className='secret-logs-page'>
