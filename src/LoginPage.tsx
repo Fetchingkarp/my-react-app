@@ -13,7 +13,7 @@ const LoginPage = () => {
   const [password, setPassword] = useState<string>("");
 
   // Register
-  const handleRegisterSubmit = async (e: React.FormEvent) => {
+  {/*const handleRegisterSubmit = async (e: React.FormEvent) => {
     e.preventDefault(); // prevents page reload
 
     const body = { name, password, }
@@ -34,7 +34,7 @@ const LoginPage = () => {
     } catch (err) {
       console.error(err);
     }
-  };
+  };*/}
 
   // Log in
   const [loginName, setLoginName] = useState<string>("");
